@@ -1,0 +1,35 @@
+<h1 class="text-lg">Hello World! home page</h1>
+
+<% flash.each do |type, msg| %>
+  <div>
+    <%= msg %>
+  </div>
+<% end %>
+<ul>
+  <% @contacts.each do |contact| %>
+
+  
+    <li>
+     
+
+        <a href="/contacts/<%= contact.id %>">
+        <%= contact.firstname %>   <%= contact.lastname %>
+         </a>
+
+          <a href="/contacts/<%= contact.id %>/edit">
+      Edit
+       </a> 
+
+
+       
+<%= link_to "Destroy", contact_path(contact), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %>
+
+                  
+                  </li>
+    
+  <% end %>
+</ul>
+

@@ -1,0 +1,50 @@
+
+<h1> Edit User <%= @con.firstname %> <%= @con.lastname %> </h1>
+
+<%= form_for :contact, url: contacts_path(@con),method: :patch do |f| %>
+
+
+<div>
+<%= f.label :Firstname %>
+<%= f.text_field :firstname %>
+
+   <% @con.errors.full_messages_for(:firstname).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+ 
+</div>
+
+
+<p>
+<%= f.label :lastname %>
+<%= f.text_field :lastname %>
+
+  <% @con.errors.full_messages_for(:lastname).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+</p>
+
+<p>
+<%= f.label :Email %>
+ <%= f.text_field :email %>
+
+   <% @con.errors.full_messages_for(:email).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+</p>
+
+
+<p>
+<%= f.label :Contactno %>
+ <%= f.text_field :contactno %>
+   <% @con.errors.full_messages_for(:contactno).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+</p>
+
+
+<%= f.submit %>
+<% end %>
+
+
+ 

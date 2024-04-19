@@ -1,0 +1,16 @@
+<% flash.each do |type, msg| %>
+  <div>
+    <%= msg %>
+  </div>
+<% end %>
+
+<h1> <%= @con.firstname %> <%= @con.lastname %> </h1>
+<h3> <%= @con.email %> <%= @con.contactno %> </h3><ul>
+
+
+  <li><%= link_to "Edit", edit_contact_path(@con) %></li>
+  <li><%= link_to "Destroy", contact_path(@con), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %></li>
+</ul>
